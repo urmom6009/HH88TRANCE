@@ -1,0 +1,24 @@
+import { describe, expect, it } from "vitest";
+import { customVideos, drainPlans, findomCards, mainVideos, navItems } from "../src/content";
+
+describe("site content model", () => {
+  it("covers the primary navigation routes", () => {
+    expect(navItems.map((item) => item.href)).toEqual(["/", "/videos", "/findom", "/about", "/contact"]);
+  });
+
+  it("keeps video cards split across custom and main routes", () => {
+    expect(customVideos).toHaveLength(4);
+    expect(mainVideos).toHaveLength(4);
+    expect(customVideos.every((video) => video.kind === "custom")).toBe(true);
+    expect(mainVideos.every((video) => video.kind === "main")).toBe(true);
+  });
+
+  it("marks findom feature cards as internal route links", () => {
+    expect(findomCards.map((card) => card.href)).toEqual(["/findom/auto-drains", "/findom/contracts"]);
+  });
+
+  it("uses external-checkout copy for recurring plans", () => {
+    expect(drainPlans.map((plan) => plan.cadence)).toContain("/ Week");
+    expect(drainPlans.map((plan) => plan.cadence)).toContain("/ Daily");
+  });
+});
