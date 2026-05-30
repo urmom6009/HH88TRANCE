@@ -2,6 +2,7 @@
 
 ## 2026-05-29
 
+- Added first-time Vercel deployment steps and low-code launch next steps to the README.
 - Expanded the README with setup, structure, deployment, hosting notes, and detailed next steps.
 - Scaffolded the Vercel-ready HH88TRANCE React site with all requested public routes.
 - Added shared header, navigation, cards, accordions, link rows, 18+ gate, privacy content, and sanitized adult-brand copy.
