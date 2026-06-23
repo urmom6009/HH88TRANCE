@@ -1,21 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500;600;700;800&family=Oswald:wght@500;600;700&display=swap");
 
 :root {
   color-scheme: dark;
-  --bg: #030304;
-  --panel: rgba(12, 12, 14, 0.9);
-  --panel-strong: rgba(18, 18, 20, 0.96);
-  --line: rgba(255, 255, 255, 0.14);
-  --line-hard: rgba(255, 255, 255, 0.28);
-  --muted: #9b9ca3;
-  --text: #f1f1f0;
-  --red: #b10f1f;
-  --red-hot: #f11d32;
-  --steel: #9aa1a8;
-  --cyan: #77d8ff;
-  --amber: #c5953a;
-  --white: #f4f1e9;
-  font-family: Inter, system-ui, sans-serif;
+  --bg: #040405;
+  --panel: rgba(13, 14, 15, 0.9);
+  --panel-strong: rgba(18, 19, 21, 0.96);
+  --line: rgba(184, 190, 196, 0.16);
+  --line-hard: rgba(184, 190, 196, 0.34);
+  --muted: #969ca1;
+  --text: #ecebe6;
+  --red: #9d101c;
+  --red-hot: #d81b2a;
+  --steel: #9ea6ad;
+  --cyan: #aeb8c1;
+  --amber: #b69355;
+  --white: #f0eee8;
+  font-family: "IBM Plex Sans", system-ui, sans-serif;
 }
 
 * {
@@ -62,8 +62,8 @@ button {
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
     linear-gradient(0deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    radial-gradient(ellipse at 48% 20%, rgba(177, 15, 31, 0.22), transparent 38rem),
-    linear-gradient(145deg, #030304 0%, #08080a 48%, #141012 100%);
+    linear-gradient(125deg, rgba(157, 16, 28, 0.18), transparent 28rem),
+    linear-gradient(145deg, #040405 0%, #090a0b 54%, #141416 100%);
   background-size:
     78px 78px,
     78px 78px,
@@ -76,9 +76,9 @@ button {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, transparent 0 42%, rgba(255, 255, 255, 0.08) 42.2% 42.7%, transparent 43% 100%),
-    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 9px);
-  opacity: 0.44;
+    linear-gradient(115deg, transparent 0 42%, rgba(184, 190, 196, 0.08) 42.2% 42.7%, transparent 43% 100%),
+    repeating-linear-gradient(0deg, rgba(184, 190, 196, 0.025) 0 1px, transparent 1px 10px);
+  opacity: 0.34;
   mix-blend-mode: screen;
 }
 
@@ -93,8 +93,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 20;
-  background: rgba(3, 3, 4, 0.94);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(4, 4, 5, 0.96);
+  border-bottom: 1px solid rgba(184, 190, 196, 0.18);
   backdrop-filter: blur(16px);
 }
 
@@ -104,79 +104,126 @@ button {
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 88px;
+  flex-direction: column;
+  gap: 0.2rem;
+  height: 86px;
   overflow: hidden;
   border: 0;
   cursor: pointer;
   background:
-    linear-gradient(90deg, rgba(177, 15, 31, 0.28), transparent 28%, transparent 72%, rgba(177, 15, 31, 0.22)),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 58px),
-    #08080a;
+    linear-gradient(90deg, rgba(157, 16, 28, 0.3), transparent 34%, transparent 66%, rgba(157, 16, 28, 0.2)),
+    linear-gradient(180deg, rgba(184, 190, 196, 0.1), transparent 48%, rgba(0, 0, 0, 0.56)),
+    #090a0b;
 }
 
 .money-banner::before {
   content: "";
   position: absolute;
   inset: 0;
-  border-block: 1px solid rgba(255, 255, 255, 0.18);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 42%, rgba(0, 0, 0, 0.5));
-}
-
-.banner-rule {
-  position: absolute;
-  width: min(28vw, 360px);
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(244, 241, 233, 0.62), transparent);
-}
-
-.banner-rule-left {
-  left: 5vw;
-}
-
-.banner-rule-right {
-  right: 5vw;
+  border-block: 1px solid rgba(184, 190, 196, 0.18);
+  background:
+    linear-gradient(90deg, transparent 0 12%, rgba(184, 190, 196, 0.16) 12% 12.2%, transparent 12.2% 87.8%, rgba(184, 190, 196, 0.16) 87.8% 88%, transparent 88%),
+    repeating-linear-gradient(90deg, rgba(184, 190, 196, 0.07) 0 1px, transparent 1px 72px);
 }
 
 .brand-mark {
   position: relative;
   z-index: 1;
-  font-family: Anton, Impact, sans-serif;
-  font-size: clamp(2.55rem, 6.4vw, 4.85rem);
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.35rem, 5.8vw, 4.25rem);
+  font-weight: 700;
   letter-spacing: 0;
-  color: #f5f2ea;
+  color: #f0eee8;
   text-transform: uppercase;
-  text-shadow: 0 2px 0 #000, 0 0 24px rgba(177, 15, 31, 0.56);
+  text-shadow: 0 1px 0 #000, 0 0 16px rgba(157, 16, 28, 0.42);
+}
+
+.brand-kicker {
+  position: relative;
+  z-index: 1;
+  color: #aeb4ba;
+  font-size: clamp(0.62rem, 1.5vw, 0.78rem);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .main-nav {
   display: flex;
+  align-items: flex-start;
   justify-content: center;
-  gap: clamp(0.5rem, 2.2vw, 2.2rem);
-  min-height: 66px;
-  padding: 0.75rem 1.25rem;
+  gap: clamp(0.4rem, 1.6vw, 1.5rem);
+  min-height: 64px;
+  padding: 0.75rem 1.25rem 0.65rem;
   overflow-x: auto;
   scrollbar-color: rgba(255, 255, 255, 0.42) transparent;
 }
 
+.nav-group {
+  position: relative;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.nav-children {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  max-width: 0;
+  padding: 0.45rem;
+  border: 1px solid rgba(184, 190, 196, 0.18);
+  background: rgba(7, 8, 9, 0.98);
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+  transform: translateX(-0.45rem);
+  transition: max-width 180ms ease, opacity 160ms ease, transform 160ms ease;
+}
+
+.nav-group:hover .nav-children,
+.nav-group:focus-within .nav-children,
+.nav-group.section-open .nav-children {
+  max-width: 26rem;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.nav-group-line {
+  width: 22px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--red-hot), rgba(184, 190, 196, 0.35));
+}
+
 .nav-link {
   flex: 0 0 auto;
-  min-height: 42px;
-  padding: 0 0.95rem;
+  min-height: 40px;
+  padding: 0 0.85rem;
   border: 1px solid transparent;
   border-radius: 2px;
   background: transparent;
   cursor: pointer;
-  color: #c6c4bf;
-  font-weight: 900;
-  font-size: clamp(0.78rem, 1.3vw, 1rem);
-  letter-spacing: 0.12em;
+  color: #c5c9cc;
+  font-weight: 800;
+  font-size: clamp(0.76rem, 1.15vw, 0.92rem);
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.nav-link.nested {
+  min-height: 34px;
+  padding-inline: 0.72rem;
+  border-color: rgba(184, 190, 196, 0.12);
+  color: #aeb4ba;
+  font-size: 0.72rem;
 }
 
 .nav-link.active,
 .nav-link:hover {
-  border-color: rgba(255, 255, 255, 0.24);
-  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(184, 190, 196, 0.28);
+  background: rgba(184, 190, 196, 0.075);
 }
 
 .accent-red.active,
@@ -243,19 +290,20 @@ button {
   align-items: flex-start;
   gap: 0.06em;
   margin: 1.45rem 0 1.4rem;
-  font-family: Anton, Impact, sans-serif;
-  font-size: clamp(4.2rem, 12.4vw, 10.5rem);
-  line-height: 0.84;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(3.8rem, 10.5vw, 9rem);
+  font-weight: 700;
+  line-height: 0.9;
   letter-spacing: 0;
   text-transform: uppercase;
-  text-shadow: 0 0 30px rgba(177, 15, 31, 0.4);
+  text-shadow: 0 0 22px rgba(157, 16, 28, 0.28);
 }
 
 .hero h1 span {
   display: block;
-  color: #a8a6a0;
-  font-size: clamp(1.7rem, 4.6vw, 4.15rem);
-  line-height: 0.95;
+  color: #a7adb2;
+  font-size: clamp(1.35rem, 3.6vw, 3.25rem);
+  line-height: 1;
 }
 
 .hero-copy,
@@ -294,7 +342,7 @@ button {
   letter-spacing: 0.08em;
   color: #f5f2ea;
   background: linear-gradient(180deg, #b10f1f, #650812);
-  box-shadow: 0 0 28px rgba(177, 15, 31, 0.26);
+  box-shadow: 0 0 18px rgba(157, 16, 28, 0.22);
 }
 
 .primary-button:hover,
@@ -335,8 +383,8 @@ button {
   color: #f5f2ea;
   background:
     linear-gradient(180deg, transparent 0 50%, rgba(0, 0, 0, 0.86) 100%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0 1px, transparent 1px 22px),
-    linear-gradient(135deg, rgba(177, 15, 31, 0.36), rgba(14, 14, 16, 0.96));
+    repeating-linear-gradient(135deg, rgba(184, 190, 196, 0.08) 0 1px, transparent 1px 24px),
+    linear-gradient(135deg, rgba(157, 16, 28, 0.28), rgba(14, 15, 16, 0.96));
 }
 
 .landing-card::before {
@@ -351,9 +399,9 @@ button {
   position: relative;
   display: block;
   margin-top: 52vh;
-  font-family: Anton, Impact, sans-serif;
-  font-size: clamp(3.1rem, 7vw, 6rem);
-  line-height: 0.9;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  line-height: 0.96;
   text-transform: uppercase;
 }
 
@@ -371,7 +419,7 @@ button {
 .main-card {
   background:
     linear-gradient(180deg, transparent 0 50%, rgba(0, 0, 0, 0.88) 100%),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 24px),
+    repeating-linear-gradient(45deg, rgba(184, 190, 196, 0.07) 0 1px, transparent 1px 24px),
     linear-gradient(135deg, rgba(86, 91, 96, 0.45), rgba(14, 14, 16, 0.98));
 }
 
@@ -409,9 +457,9 @@ button {
 .privacy-page h1,
 .section-title {
   margin: 0 0 1.5rem;
-  font-family: Anton, Impact, sans-serif;
-  font-size: clamp(2.45rem, 6vw, 5.1rem);
-  line-height: 0.92;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.25rem, 5.4vw, 4.7rem);
+  line-height: 0.98;
   letter-spacing: 0;
   text-transform: uppercase;
 }
@@ -453,14 +501,14 @@ button {
   overflow: hidden;
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.58), transparent 52%),
-    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px 42px),
-    linear-gradient(130deg, rgba(177, 15, 31, 0.52), rgba(30, 31, 33, 0.98));
+    repeating-linear-gradient(90deg, rgba(184, 190, 196, 0.08) 0 1px, transparent 1px 44px),
+    linear-gradient(130deg, rgba(157, 16, 28, 0.42), rgba(30, 31, 33, 0.98));
 }
 
 .still-main {
   background:
     linear-gradient(0deg, rgba(0, 0, 0, 0.6), transparent 52%),
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px 36px),
+    repeating-linear-gradient(45deg, rgba(184, 190, 196, 0.075) 0 1px, transparent 1px 36px),
     linear-gradient(120deg, rgba(95, 97, 99, 0.55), rgba(36, 14, 18, 0.98));
 }
 
@@ -495,13 +543,13 @@ button {
   place-items: center;
   padding: 3rem;
   text-align: center;
-  font-family: Anton, Impact, sans-serif;
-  font-size: clamp(2.7rem, 6.2vw, 5.4rem);
-  line-height: 0.86;
-  letter-spacing: 0.04em;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(2.35rem, 5.4vw, 4.6rem);
+  line-height: 0.95;
+  letter-spacing: 0;
   text-transform: uppercase;
-  text-shadow: 0 3px 0 #000, 0 0 24px rgba(0, 0, 0, 0.9);
-  opacity: 0.9;
+  text-shadow: 0 2px 0 #000, 0 0 18px rgba(0, 0, 0, 0.84);
+  opacity: 0.86;
 }
 
 .fake-controls {
@@ -528,7 +576,7 @@ button {
 
 .video-body h2 {
   margin: 0 0 0.9rem;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: 2.15rem;
   line-height: 0.95;
   text-transform: uppercase;
@@ -558,8 +606,6 @@ button {
 }
 
 .sticky-switch {
-  position: sticky;
-  bottom: 0;
   width: 100%;
   min-height: 66px;
   margin-top: 3rem;
@@ -608,7 +654,7 @@ button {
 
 .feature-card h2 {
   margin: 3.6rem 0 1.2rem;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(2.6rem, 5vw, 4.4rem);
   line-height: 0.92;
   text-transform: uppercase;
@@ -624,7 +670,7 @@ button {
 
 .drains-page h1 span,
 .drains-page h1 em {
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-style: normal;
 }
 
@@ -656,7 +702,7 @@ button {
 
 .drain-row h2 {
   margin: 0;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(2.6rem, 7vw, 5.2rem);
   line-height: 0.9;
   text-transform: uppercase;
@@ -669,7 +715,7 @@ button {
 
 .drain-price strong {
   display: block;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(2.6rem, 5vw, 4.8rem);
   line-height: 0.9;
 }
@@ -757,7 +803,7 @@ button {
   border: 0;
   background: transparent;
   cursor: pointer;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(1.7rem, 3vw, 2.7rem);
   font-weight: 400;
   line-height: 0.95;
@@ -850,7 +896,7 @@ button {
 
 .age-panel h2 {
   margin: 0 0 1rem;
-  font-family: Anton, Impact, sans-serif;
+  font-family: "Oswald", Impact, sans-serif;
   font-size: clamp(2.6rem, 6vw, 4.3rem);
   line-height: 0.92;
   text-transform: uppercase;
@@ -892,19 +938,126 @@ footer button {
   text-transform: uppercase;
 }
 
+.admin-bg {
+  background:
+    linear-gradient(90deg, rgba(184, 190, 196, 0.035) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(184, 190, 196, 0.025) 1px, transparent 1px),
+    linear-gradient(130deg, rgba(157, 16, 28, 0.16), transparent 32rem),
+    #050607;
+  background-size:
+    70px 70px,
+    70px 70px,
+    auto,
+    auto;
+}
+
+.admin-shell {
+  width: min(100% - 3rem, 1180px);
+  margin: 0 auto;
+  padding: 5rem 0 6rem;
+}
+
+.admin-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.42fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  min-height: 52vh;
+}
+
+.admin-hero h1 {
+  max-width: 760px;
+  margin: 1.35rem 0 1.2rem;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(3.6rem, 9vw, 8rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.admin-copy {
+  max-width: 800px;
+  color: #cdd1d4;
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  font-weight: 700;
+  line-height: 1.56;
+}
+
+.admin-access-card,
+.admin-card {
+  border: 1px solid var(--line);
+  background: rgba(12, 13, 14, 0.94);
+  box-shadow: inset 0 1px 0 rgba(184, 190, 196, 0.07), 0 24px 72px rgba(0, 0, 0, 0.36);
+}
+
+.admin-access-card {
+  display: grid;
+  align-content: end;
+  gap: 1rem;
+  min-height: 360px;
+  padding: clamp(1.5rem, 3vw, 2.4rem);
+  border-left: 6px solid var(--red);
+}
+
+.admin-access-card h2,
+.admin-card h2 {
+  margin: 0;
+  font-family: "Oswald", Impact, sans-serif;
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.admin-access-card p,
+.admin-card p {
+  margin: 0;
+  color: #b9bec3;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 3rem;
+}
+
+.admin-card {
+  display: grid;
+  gap: 1.1rem;
+  min-height: 240px;
+  padding: clamp(1.4rem, 2.6vw, 2.1rem);
+}
+
+.admin-card svg,
+.admin-access-card svg {
+  color: var(--red-hot);
+}
+
 @media (max-width: 760px) {
   .money-banner {
-    height: 74px;
+    height: 76px;
   }
 
-  .banner-rule {
-    display: none;
+  .brand-kicker {
+    max-width: min(88vw, 34rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .main-nav {
     justify-content: flex-start;
-    min-height: 58px;
+    min-height: 64px;
     padding-inline: 0.75rem;
+  }
+
+  .nav-group.section-open {
+    order: -1;
+  }
+
+  .nav-children {
+    padding-inline: 0.35rem;
   }
 
   .page-shell {
@@ -984,5 +1137,20 @@ footer button {
   .secondary-button,
   .buy-button {
     width: 100%;
+  }
+
+  .admin-shell {
+    width: min(100% - 1.5rem, 1180px);
+    padding-top: 3.5rem;
+  }
+
+  .admin-hero,
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-access-card,
+  .admin-card {
+    min-height: auto;
   }
 }

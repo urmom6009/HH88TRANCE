@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import {
+  aboutSubnav,
   aboutAccordions,
   contactLinks,
   customVideos,
@@ -18,7 +19,12 @@ import {
   type VideoFile
 } from "./content";
 
-const { BadgeDollarSign, ChevronLeft, ExternalLink, FileLock2, Mail, Play } = icons;
+const { BadgeDollarSign, ChevronLeft, ExternalLink, FileLock2, Gauge, KeyRound, Mail, Play, ShieldCheck } = icons;
+const adminModules = [
+  { title: "Launch Checks", body: "Pending links, age gate, route coverage, and production metadata.", Icon: Gauge },
+  { title: "Content Queue", body: "Main files, custom commissions, thumbnails, and delivery notes.", Icon: FileLock2 },
+  { title: "Security", body: "Authentication, off-site checkout boundaries, and sanitized hosting posture.", Icon: ShieldCheck }
+];
 
 const routeMap: Record<string, string> = {
   "/": "home",
@@ -62,43 +68,66 @@ function navigateTo(href: string) {
 function routeSection(path: string): NavItem["section"] {
   if (path.startsWith("/videos")) return "videos";
   if (path.startsWith("/findom")) return "findom";
-  if (path === "/about") return "about";
-  if (path === "/contact" || path === "/privacy") return "contact";
+  if (path === "/about" || path === "/contact" || path === "/privacy") return "about";
   return "home";
 }
 
 function BrandHeader({ path }: { path: string }) {
   const section = routeSection(path);
-  const extraItems = path.startsWith("/videos") ? videoSubnav.slice(1) : path.startsWith("/findom") ? findomSubnav.slice(1) : [];
-  const allItems = navItems.flatMap((item) => {
-    if (item.section === "videos" && extraItems.length && path.startsWith("/videos")) return [item, ...extraItems];
-    if (item.section === "findom" && extraItems.length && path.startsWith("/findom")) return [item, ...extraItems];
-    return [item];
-  });
+  const groupedNav = navItems
+    .filter((item) => item.section !== "contact")
+    .map((item) => {
+      if (item.section === "videos") return { parent: item, children: videoSubnav.slice(1) };
+      if (item.section === "findom") return { parent: item, children: findomSubnav.slice(1) };
+      if (item.section === "about") return { parent: item, children: aboutSubnav.slice(1) };
+      return { parent: item, children: [] };
+    });
 
   return (
     <header className="site-header">
       <button className="money-banner" onClick={() => navigateTo("/")} aria-label="HH88TRANCE home">
-        <span className="banner-rule banner-rule-left" />
         <span className="brand-mark">HH88TRANCE</span>
-        <span className="banner-rule banner-rule-right" />
+        <span className="brand-kicker">Adult trance files | Findom systems | Custom commissions</span>
       </button>
       <nav className="main-nav" aria-label="Primary navigation">
-        {allItems.map((item) => {
-          const active =
-            item.href === path ||
-            (item.href === "/videos" && section === "videos" && path === "/videos") ||
-            (item.href === "/findom" && section === "findom" && path === "/findom");
-          return <NavButton key={item.href} item={item} active={active} />;
-        })}
+        {groupedNav.map(({ parent, children }) => (
+          <NavGroup key={parent.href} item={parent} childrenItems={children} path={path} activeSection={section === parent.section} />
+        ))}
       </nav>
     </header>
   );
 }
 
-function NavButton({ item, active }: { item: NavItem; active: boolean }) {
+function NavGroup({
+  item,
+  childrenItems,
+  path,
+  activeSection
+}: {
+  item: NavItem;
+  childrenItems: NavItem[];
+  path: string;
+  activeSection: boolean;
+}) {
+  const active = item.href === path || activeSection;
   return (
-    <button className={`nav-link accent-${item.accent}${active ? " active" : ""}`} onClick={() => navigateTo(item.href)}>
+    <div className={`nav-group${childrenItems.length ? " has-children" : ""}${activeSection ? " section-open" : ""}`}>
+      <NavButton item={item} active={active} />
+      {childrenItems.length ? (
+        <div className="nav-children" aria-label={`${item.label} pages`}>
+          <span className="nav-group-line" aria-hidden="true" />
+          {childrenItems.map((child) => (
+            <NavButton key={child.href} item={child} active={child.href === path} nested />
+          ))}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+function NavButton({ item, active, nested = false }: { item: NavItem; active: boolean; nested?: boolean }) {
+  return (
+    <button className={`nav-link accent-${item.accent}${active ? " active" : ""}${nested ? " nested" : ""}`} onClick={() => navigateTo(item.href)}>
       {item.label}
     </button>
   );
@@ -147,6 +176,10 @@ function Shell({ children, path }: { children: ReactNode; path: string }) {
       <AgeGate />
     </>
   );
+}
+
+function isAdminHost() {
+  return window.location.hostname.toLowerCase() === "admin.hh88trance.com";
 }
 
 function HomePage() {
@@ -427,6 +460,40 @@ function PrivacyPage() {
   );
 }
 
+function AdminPortal() {
+  return (
+    <>
+      <div className="space-bg admin-bg" aria-hidden="true" />
+      <main className="admin-shell">
+        <section className="admin-hero">
+          <div>
+            <p className="capsule">admin.hh88trance.com</p>
+            <h1>Admin Portal</h1>
+            <p className="admin-copy">
+              Private operations surface for content status, payment-link readiness, commission intake, and launch checks. This static
+              version is a configured portal shell; connect authentication and a backend before using it for real account data.
+            </p>
+          </div>
+          <div className="admin-access-card">
+            <KeyRound size={34} />
+            <h2>Access Pending</h2>
+            <p>Do not place production customer, payment, or commission data here until server-side authentication is attached.</p>
+          </div>
+        </section>
+        <section className="admin-grid" aria-label="Admin modules">
+          {adminModules.map(({ title, body, Icon }) => (
+            <article className="admin-card" key={title}>
+              <Icon size={28} />
+              <h2>{title}</h2>
+              <p>{body}</p>
+            </article>
+          ))}
+        </section>
+      </main>
+    </>
+  );
+}
+
 function NotFoundPage() {
   return (
     <section className="page-shell centered-card-page">
@@ -453,32 +520,43 @@ function Footer() {
 
 export function App() {
   const path = usePathname();
-  const page = useMemo(() => {
-    switch (routeMap[path]) {
-      case "home":
-        return <HomePage />;
-      case "videos":
-        return <VideosLanding />;
-      case "customs":
-        return <VideoPage type="custom" />;
-      case "main":
-        return <VideoPage type="main" />;
-      case "findom":
-        return <FindomLanding />;
-      case "auto-drains":
-        return <AutoDrainsPage />;
-      case "contracts":
-        return <ContractsPage />;
-      case "about":
-        return <AboutPage />;
-      case "contact":
-        return <ContactPage />;
-      case "privacy":
-        return <PrivacyPage />;
-      default:
-        return <NotFoundPage />;
-    }
-  }, [path]);
+  if (isAdminHost()) return <AdminPortal />;
+
+  let page: ReactNode;
+  switch (routeMap[path]) {
+    case "home":
+      page = <HomePage />;
+      break;
+    case "videos":
+      page = <VideosLanding />;
+      break;
+    case "customs":
+      page = <VideoPage type="custom" />;
+      break;
+    case "main":
+      page = <VideoPage type="main" />;
+      break;
+    case "findom":
+      page = <FindomLanding />;
+      break;
+    case "auto-drains":
+      page = <AutoDrainsPage />;
+      break;
+    case "contracts":
+      page = <ContractsPage />;
+      break;
+    case "about":
+      page = <AboutPage />;
+      break;
+    case "contact":
+      page = <ContactPage />;
+      break;
+    case "privacy":
+      page = <PrivacyPage />;
+      break;
+    default:
+      page = <NotFoundPage />;
+  }
 
   return (
     <>

@@ -43,6 +43,7 @@ The first implementation follows the provided PDF references from `/Users/colinv
 - `/about`
 - `/contact`
 - `/privacy`
+- `admin.hh88trance.com` renders the static admin portal shell
 
 The site uses client-side routing with `vercel.json` rewrites so deep links load through `index.html`.
 
@@ -88,6 +89,7 @@ You need:
 - Keep `.vercel/`, local `.env` files, and provider secrets out of git.
 - Replace pending payment/social placeholders before a production launch.
 - Review `docs/hosting-note.md` before publishing any less-sanitized copy.
+- Add both `hh88trance.com` and `admin.hh88trance.com` to the same Vercel project. The app detects the admin hostname and renders the admin portal shell there.
 
 ## Next Steps
 
