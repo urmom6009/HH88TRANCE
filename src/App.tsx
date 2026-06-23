@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import type { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import {
   aboutAccordions,
   contactLinks,
@@ -479,5 +480,10 @@ export function App() {
     }
   }, [path]);
 
-  return <Shell path={path}>{page}</Shell>;
+  return (
+    <>
+      <Shell path={path}>{page}</Shell>
+      <SpeedInsights />
+    </>
+  );
 }
