@@ -78,10 +78,9 @@ function BrandHeader({ path }: { path: string }) {
   return (
     <header className="site-header">
       <button className="money-banner" onClick={() => navigateTo("/")} aria-label="HH88TRANCE home">
-        <span className="bill bill-one" />
-        <span className="bill bill-two" />
+        <span className="banner-rule banner-rule-left" />
         <span className="brand-mark">HH88TRANCE</span>
-        <span className="bill bill-three" />
+        <span className="banner-rule banner-rule-right" />
       </button>
       <nav className="main-nav" aria-label="Primary navigation">
         {allItems.map((item) => {
@@ -152,15 +151,15 @@ function Shell({ children, path }: { children: ReactNode; path: string }) {
 function HomePage() {
   return (
     <section className="hero page-shell">
-      <p className="capsule">◎ Findom | Hypno | Trance | ASMR | 14WP88</p>
+      <p className="capsule">Findom | Hypno | Trance | ASMR | Control Files</p>
       <h1>
-        <span>Go Deeper</span>
+        <span>Pressure Engine</span>
         HH88TRANCE
-        <span>Watch More</span>
+        <span>Obey the Loop</span>
       </h1>
       <p className="hero-copy">
-        Adult hypno, ASMR, heavy trance, and music-driven files exploring devotion, ritual, identity, politics, and the pressure of
-        repetition through dark visual loops and immersive audio.
+        Adult hypno, ASMR, heavy trance, and findom files built around pressure, repetition, fixation, and ritual surrender. Cold visuals,
+        relentless audio, and command-driven pacing for viewers who want the file to take over.
       </p>
       <div className="button-row">
         <button className="primary-button" onClick={() => navigateTo("/videos")}>
@@ -198,8 +197,8 @@ function VideoPage({ type }: { type: "custom" | "main" }) {
         title={type === "custom" ? "Custom Commission Files" : "Main Files"}
         copy={
           type === "custom"
-            ? "Custom commission files are paid requests for individual clients or groups. Choose the style, vocal approach, theme, final length up to 30 minutes, and preference for repetition or unique audio."
-            : "Main files are created and inspired by HH88TRANCE as time allows. Each full file is delivered in full quality through external purchase or subscription services."
+            ? "Custom commission files are paid requests for individual clients or groups. Choose the pressure level, vocal approach, theme, final length up to 30 minutes, and whether the file should grind through repetition or stay tightly scripted."
+            : "Main files are HH88TRANCE releases built for immersion, obedience, visual fixation, and repeat playback. Each full file is delivered in full quality through external purchase or subscription services."
         }
         strong={type === "custom" ? "Custom commission files are available to request for $200." : "All listed files are $80 unless marked otherwise."}
       />
@@ -258,7 +257,8 @@ function FindomLanding() {
       <p className="capsule">Financial Domination</p>
       <h1>Submit to the Process</h1>
       <p className="lead">
-        Explore structured tribute systems, automated recurring support, and contract status pages designed for adult financial devotion.
+        Structured tribute systems, recurring drains, and contract status pages for adult financial devotion with clear boundaries and off-site
+        processing.
       </p>
       <div className="feature-grid">
         {findomCards.map(({ title, description, href, cta, Icon }) => (
@@ -328,13 +328,13 @@ function AboutPage() {
   return (
     <section className="page-shell about-page">
       <h1>HH88TRANCE</h1>
-      <p className="subhead">Findom | Hypno | Trance | ASMR | Music | Ritual | Devotion | Pro-Masculinity</p>
+      <p className="subhead">Findom | Hypno | Trance | ASMR | Music | Ritual | Devotion | Control</p>
       <div className="text-card">
         <p>
           HH88TRANCE is an adult hypnotic video and audio creator specializing in findom, hypno, trance, and ASMR files with dark,
-          repetitive visuals and intense audio pacing.
+          repetitive visuals, controlled pacing, and an intentionally severe tone.
         </p>
-        <p>Work is designed around immersion, pressure, repetition, and a controlled adult fantasy experience.</p>
+        <p>Work is designed around immersion, pressure, repetition, and a controlled adult fantasy experience that feels heavier than casual entertainment.</p>
         <p>On this site you will find:</p>
         <Accordion />
       </div>

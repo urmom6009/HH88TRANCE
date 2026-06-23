@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import type { ComponentType } from "react";
 
-export type Accent = "pink" | "blue" | "green" | "orange" | "yellow" | "cyan";
+export type Accent = "red" | "blue" | "steel" | "amber" | "white" | "cyan";
 
 export type NavItem = {
   label: string;
@@ -48,30 +48,30 @@ export type DrainPlan = {
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "/", section: "home", accent: "pink" },
+  { label: "Home", href: "/", section: "home", accent: "red" },
   { label: "Videos", href: "/videos", section: "videos", accent: "cyan" },
-  { label: "Findom", href: "/findom", section: "findom", accent: "green" },
-  { label: "About", href: "/about", section: "about", accent: "green" },
-  { label: "Contact", href: "/contact", section: "contact", accent: "yellow" }
+  { label: "Findom", href: "/findom", section: "findom", accent: "steel" },
+  { label: "About", href: "/about", section: "about", accent: "steel" },
+  { label: "Contact", href: "/contact", section: "contact", accent: "amber" }
 ];
 
 export const videoSubnav: NavItem[] = [
   { label: "Videos", href: "/videos", section: "videos", accent: "cyan" },
-  { label: "Customs", href: "/videos/customs", section: "videos", accent: "pink" },
-  { label: "Main", href: "/videos/main", section: "videos", accent: "pink" }
+  { label: "Customs", href: "/videos/customs", section: "videos", accent: "red" },
+  { label: "Main", href: "/videos/main", section: "videos", accent: "red" }
 ];
 
 export const findomSubnav: NavItem[] = [
-  { label: "Findom", href: "/findom", section: "findom", accent: "green" },
-  { label: "Auto-Drains", href: "/findom/auto-drains", section: "findom", accent: "orange" },
-  { label: "Contracts", href: "/findom/contracts", section: "findom", accent: "yellow" }
+  { label: "Findom", href: "/findom", section: "findom", accent: "steel" },
+  { label: "Auto-Drains", href: "/findom/auto-drains", section: "findom", accent: "red" },
+  { label: "Contracts", href: "/findom/contracts", section: "findom", accent: "amber" }
 ];
 
 export const customVideos: VideoFile[] = [
   {
     title: "Custom 4 - MTX",
     creator: "HH88TRANCE (Commissioned)",
-    meta: ["Trance", "Current events", "Masculine ritual", "Spoken word", "Unique audio"],
+    meta: ["Trance", "Pressure ritual", "Spoken word", "Unique audio"],
     price: "$80.00",
     kind: "custom",
     visual: "custom 4"
@@ -79,7 +79,7 @@ export const customVideos: VideoFile[] = [
   {
     title: "Custom 3 - CDL",
     creator: "HH88TRANCE (Commissioned)",
-    meta: ["Trance", "Masculinity", "Country pride", "Soft spoken", "Unique audio"],
+    meta: ["Trance", "Identity pressure", "Soft spoken", "Unique audio"],
     price: "$80.00",
     kind: "custom",
     visual: "custom 3"
@@ -106,7 +106,7 @@ export const mainVideos: VideoFile[] = [
   {
     title: "File 11",
     creator: "HH88TRANCE",
-    meta: ["Hypno", "Intox loop", "1488 archive", "Findom", "Soft spoken", "Unique audio"],
+    meta: ["Hypno", "Intox loop", "Findom", "Soft spoken", "Unique audio"],
     duration: "1 hour max length",
     price: "$80.00",
     kind: "main",
@@ -158,7 +158,7 @@ export const socialLinks: LinkItem[] = [
 export const aboutAccordions: AccordianItem[] = [
   {
     title: "What you will watch",
-    body: "Dark adult trance, ASMR, and music-driven audio/video files built around ritual, repetition, devotion, and intense visual loops."
+    body: "Dark adult trance, ASMR, and music-driven audio/video files built around ritual, repetition, devotion, and hard visual fixation."
   },
   {
     title: "How you will buy the full files",
@@ -175,25 +175,25 @@ export const drainPlans: DrainPlan[] = [
     name: "Drip Drain",
     price: "$2.99",
     cadence: "/ Week",
-    description: "Slow, rhythmic support that keeps the ritual present week after week."
+    description: "Slow recurring tribute that keeps the ritual active week after week."
   },
   {
     name: "Good Boy Drain",
     price: "$4.99",
     cadence: "/ Week",
-    description: "A steady recurring tribute for followers who want a stronger commitment."
+    description: "A steady recurring tribute for followers who want stricter commitment."
   },
   {
     name: "Devoted Drain",
     price: "$2.99",
     cadence: "/ Daily",
-    description: "A daily reminder built for small, consistent acts of financial devotion."
+    description: "A daily recurring send built for consistent financial devotion."
   },
   {
     name: "Loyal Leak",
     price: "$4.99",
     cadence: "/ Daily",
-    description: "A higher-frequency recurring tribute for a more disciplined routine."
+    description: "A higher-frequency tribute for a more disciplined routine."
   }
 ];
 
@@ -206,14 +206,14 @@ export const findomCards: Array<{
 }> = [
   {
     title: "Auto-Drains",
-    description: "Set up automated recurring tributes through external providers. No payment details are collected on this site.",
+    description: "Set up automated recurring tributes through external providers. This site does not collect payment details.",
     href: "/findom/auto-drains",
     cta: "Configure Drain",
     Icon: WalletCards
   },
   {
     title: "Contracts",
-    description: "Review the status of structured devotion terms and future agreement options before anything is signed.",
+    description: "Review structured devotion terms and future agreement options before anything is signed.",
     href: "/findom/contracts",
     cta: "View Contracts",
     Icon: ClipboardSignature
