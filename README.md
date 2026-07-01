@@ -43,7 +43,8 @@ The first implementation follows the provided PDF references from `/Users/colinv
 - `/about`
 - `/contact`
 - `/privacy`
-- `admin.hh88trance.com` renders the static admin portal shell
+- `admin.hh88trance.com` renders the private admin portal for static content editing
+- `/admin` renders the same portal only during local development and test runs
 
 The site uses client-side routing with `vercel.json` rewrites so deep links load through `index.html`.
 
@@ -89,7 +90,8 @@ You need:
 - Keep `.vercel/`, local `.env` files, and provider secrets out of git.
 - Replace pending payment/social placeholders before a production launch.
 - Review `docs/hosting-note.md` before publishing any less-sanitized copy.
-- Add both `hh88trance.com` and `admin.hh88trance.com` to the same Vercel project. The app detects the admin hostname and renders the admin portal shell there.
+- Add both `hh88trance.com` and `admin.hh88trance.com` to the same Vercel project. The app detects the admin hostname and renders the admin portal there.
+- Put `admin.hh88trance.com` behind Cloudflare Access before sharing it. The portal stores drafts locally and exports JSON/TypeScript for updating `src/content.ts`; it does not publish changes automatically without a future backend.
 
 ## Next Steps
 

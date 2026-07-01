@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { AdminPortal } from "./AdminPortal";
 import {
   aboutSubnav,
   aboutAccordions,
@@ -19,12 +20,7 @@ import {
   type VideoFile
 } from "./content";
 
-const { BadgeDollarSign, ChevronLeft, ExternalLink, FileLock2, Gauge, KeyRound, Mail, Play, ShieldCheck } = icons;
-const adminModules = [
-  { title: "Launch Checks", body: "Pending links, age gate, route coverage, and production metadata.", Icon: Gauge },
-  { title: "Content Queue", body: "Main files, custom commissions, thumbnails, and delivery notes.", Icon: FileLock2 },
-  { title: "Security", body: "Authentication, off-site checkout boundaries, and sanitized hosting posture.", Icon: ShieldCheck }
-];
+const { BadgeDollarSign, ChevronLeft, ExternalLink, FileLock2, Mail, Play } = icons;
 
 const routeMap: Record<string, string> = {
   "/": "home",
@@ -179,7 +175,7 @@ function Shell({ children, path }: { children: ReactNode; path: string }) {
 }
 
 function isAdminHost() {
-  return window.location.hostname.toLowerCase() === "admin.hh88trance.com";
+  return window.location.hostname.toLowerCase() === "admin.hh88trance.com" || (import.meta.env.DEV && window.location.pathname === "/admin");
 }
 
 function HomePage() {
@@ -457,40 +453,6 @@ function PrivacyPage() {
         </article>
       ))}
     </section>
-  );
-}
-
-function AdminPortal() {
-  return (
-    <>
-      <div className="space-bg admin-bg" aria-hidden="true" />
-      <main className="admin-shell">
-        <section className="admin-hero">
-          <div>
-            <p className="capsule">admin.hh88trance.com</p>
-            <h1>Admin Portal</h1>
-            <p className="admin-copy">
-              Private operations surface for content status, payment-link readiness, commission intake, and launch checks. This static
-              version is a configured portal shell; connect authentication and a backend before using it for real account data.
-            </p>
-          </div>
-          <div className="admin-access-card">
-            <KeyRound size={34} />
-            <h2>Access Pending</h2>
-            <p>Do not place production customer, payment, or commission data here until server-side authentication is attached.</p>
-          </div>
-        </section>
-        <section className="admin-grid" aria-label="Admin modules">
-          {adminModules.map(({ title, body, Icon }) => (
-            <article className="admin-card" key={title}>
-              <Icon size={28} />
-              <h2>{title}</h2>
-              <p>{body}</p>
-            </article>
-          ))}
-        </section>
-      </main>
-    </>
   );
 }
 
