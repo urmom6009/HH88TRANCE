@@ -2,14 +2,6 @@
 
 ## Deploy
 
-From a cloned repository, install the backend subtree to the private runtime path first:
-
-```bash
-sudo backend/scripts/install_to_srv.sh
-```
-
-Then run the service from the installed runtime:
-
 ```bash
 sudo -iu storebot
 cd /srv/storebot/app
@@ -23,7 +15,6 @@ curl -fsS "$PUBLIC_BASE_URL/ready"
 ## Backup
 
 ```bash
-cd /srv/storebot/app
 BACKUP_DIR=/srv/storebot/backups scripts/backup_db.sh
 ```
 
